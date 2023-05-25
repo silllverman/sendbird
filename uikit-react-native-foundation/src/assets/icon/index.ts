@@ -60,9 +60,9 @@ const IconAssets = {
   'thumbnail-none': require('./icon-thumbnail-none.png'),
   'unarchive': require('./icon-unarchive.png'),
   'user': require('./icon-user.png'),
-  'pin': require('./icon-pin.png'),
-  'bin': require("./icon-bin.png"),
-  'bell-disable': require('./icon-bell-disable.png'),
-  'bell-enable': require('./icon-bell-enable.png')
+  'pin': require('./icon-pin.svg'),
+  'bin': require("./icon-bin.svg"),
+  'bell-disable': require('./icon-bell-disable.svg'),
+  'bell-enable': require('./icon-bell-enable.svg')
 };
 export default IconAssets;

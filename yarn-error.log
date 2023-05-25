@@ -1,0 +1,44 @@
+Arguments: 
+  /usr/local/Cellar/node@16/16.20.0/bin/node /usr/local/Cellar/yarn/1.22.19/libexec/bin/yarn.js add lerna: ^5.1.6,
+
+PATH: 
+  /Users/freebird/.rvm/gems/ruby-2.7.6/bin:/Users/freebird/.rvm/gems/ruby-2.7.6@global/bin:/Users/freebird/.rvm/rubies/ruby-2.7.6/bin:/Users/freebird/.local/share/solana/install/active_release/bin:/Users/freebird/.rbenv/shims:/Users/freebird/.rbenv/bin:/usr/local/opt/node@16/bin:/Users/freebird/.hermes/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/MacGPG2/bin:/Library/Apple/usr/bin:/Users/freebird/.cargo/bin:~/.zshrc:/Users/freebird/.pub-cache/bin:/Users/freebird/Desktop/Environment/flutter/bin:/Users/freebird/go/bin:/Users/freebird/Library/Android/sdk/emulator:/Users/freebird/Library/Android/sdk/tools:/Users/freebird/Library/Android/sdk/tools/bin:/Users/freebird/Library/Android/sdk/platform-tools:/Users/freebird/.rvm/bin:/Users/freebird/.foundry/bin:/Users/freebird/.foundry/bin:/Users/freebird/go/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.20.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/lerna:: Not found
+      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.22.19/libexec/lib/cli.js:66145:18)
+      at Request.self.callback (/usr/local/Cellar/yarn/1.22.19/libexec/lib/cli.js:140890:22)
+      at Request.emit (node:events:513:28)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.22.19/libexec/lib/cli.js:141862:10)
+      at Request.emit (node:events:513:28)
+      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.22.19/libexec/lib/cli.js:141784:12)
+      at Object.onceWrapper (node:events:627:28)
+      at IncomingMessage.emit (node:events:525:35)
+      at endReadableNT (node:internal/streams/readable:1358:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+npm manifest: 
+  {
+    "name": "sendbird",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "git@github.com:Popoodev/sendbird.git",
+    "author": "DedicatedDev <os@popoo.io>",
+    "license": "MIT",
+    "private": true
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
