@@ -66,8 +66,7 @@ const createGroupChannelListFragment = (initModule?: Partial<GroupChannelListMod
           <GroupChannelPreviewContainer
             channel={channel}
             onPress={() => onPressChannel(channel)}
-            onLongPress={() => onLongPressChannel()}
-            
+            onLongPress={() =>{}}
           />
         );
       },
@@ -98,14 +97,14 @@ const createGroupChannelListFragment = (initModule?: Partial<GroupChannelListMod
             renderHiddenItem={ (data, rowMap) => {
               const channel = data.item;
               return <View style={{flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', height:'100%', padding: 16}}>
-                <TouchableOpacity
+                {/* <TouchableOpacity
                   style={{ width: 56, justifyContent: 'center', alignItems: 'center', marginRight: 8}}
                   onPress={()=>onPinnedChanel(channel)}
                 >
                   <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center',height: 56, width: 56, borderRadius: 26,backgroundColor: '#727476',}}>
                     <Icon icon='pin' color='white'></Icon>
                   </View>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
                 <TouchableOpacity
                   style={{ width: 56, justifyContent: 'center', alignItems: 'center',marginRight: 8}}
                   onPress={()=>onEnabledNotificationChanel(channel)}
@@ -125,7 +124,7 @@ const createGroupChannelListFragment = (initModule?: Partial<GroupChannelListMod
                 </TouchableOpacity>
               </View>
             }}
-            rightOpenValue={-200}
+            rightOpenValue={-150}
             previewRowKey={'0'}
             previewOpenValue={-40}
             previewOpenDelay={3000}
