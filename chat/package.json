@@ -1,0 +1,89 @@
+{
+  "version": "4.8.1",
+  "description": "Sendbird SDK for JavaScript",
+  "name": "@sendbird/chat",
+  "author": "Sendbird <support@sendbird.com>",
+  "keywords": [
+    "sendbird",
+    "sendbird.com",
+    "messaging",
+    "chat",
+    "js"
+  ],
+  "license": "SEE LICENSE IN LICENSE.md",
+  "homepage": "https://sendbird.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sendbird/sendbird-chat-sdk-javascript"
+  },
+  "peerDependencies": {
+    "@react-native-async-storage/async-storage": "^1.17.6"
+  },
+  "peerDependenciesMeta": {
+    "@react-native-async-storage/async-storage": {
+      "optional": true
+    }
+  },
+  "type": "module",
+  "main": "sendbird.js",
+  "types": "index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./sendbird.d.ts",
+      "default": "./sendbird.js"
+    },
+    "./message": {
+      "types": "./message.d.ts",
+      "default": "./message.js"
+    },
+    "./groupChannel": {
+      "types": "./groupChannel.d.ts",
+      "default": "./groupChannel.js"
+    },
+    "./openChannel": {
+      "types": "./openChannel.d.ts",
+      "default": "./openChannel.js"
+    },
+    "./poll": {
+      "types": "./poll.d.ts",
+      "default": "./poll.js"
+    }
+  },
+  "react-native": {
+    "sendbird.js": "./sendbird.js",
+    "crypto": "react-native-crypto",
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "stream": "stream-browserify"
+  },
+  "typesVersions": {
+    "*": {
+      "message": [
+        "./message.d.ts"
+      ],
+      "groupChannel": [
+        "./groupChannel.d.ts"
+      ],
+      "openChannel": [
+        "./openChannel.d.ts"
+      ],
+      "poll": [
+        "./poll.d.ts"
+      ]
+    }
+  },
+  "browser": {
+    "sendbird.js": "./sendbird.js",
+    "crypto": "react-native-crypto",
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "stream": "stream-browserify"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "name": "@sendbird/uikit-chat-hooks",
+  "version": "2.5.0",
+  "description": "A set of React hooks for integrating Sendbird chat functionality into your React app.",
+  "keywords": [
+    "sendbird",
+    "uikit",
+    "chat",
+    "React",
+    "hooks",
+    "messaging",
+    "real-time"
+  ],
+  "main": "lib/commonjs/index",
+  "module": "lib/module/index",
+  "types": "lib/typescript/src/index.d.ts",
+  "react-native": {
+    "lib/commonjs/index": "src/index",
+    "crypto": "react-native-crypto",
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "stream": "stream-browserify"
+  },
+  "source": "src/index",
+  "files": [
+    "src",
+    "lib",
+    "!**/__tests__"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "test": "jest",
+    "build": "bob build",
+    "clean": "del lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sendbird/sendbird-uikit-react-native.git",
+    "directory": "packages/uikit-chat-hooks"
+  },
+  "author": "Sendbird <support@sendbird.com>",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/sendbird/sendbird-uikit-react-native.git/issues"
+  },
+  "homepage": "https://github.com/sendbird/sendbird-uikit-react-native.git#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "dependencies": {
+    "@sendbird/uikit-utils": "2.5.0"
+  },
+  "devDependencies": {
+    "@sendbird/uikit-testing-tools": "2.5.0",
+    "@types/react": "*",
+    "react": "17.0.2",
+    "react-native-builder-bob": "^0.18.0",
+    "typescript": "4.9.4"
+  },
+  "peerDependencies": {
+    "@sendbird/chat": "^4.3.0",
+    "react": ">=16.13.1"
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]
+    ]
+  },
+  "typedoc": {
+    "entryPoint": "./src/index.ts",
+    "readmeFile": "./README.md",
+    "displayName": "@sendbird/uikit-chat-hooks"
+  },
+  "gitHead": "4e2d6a30075a8fb6cf2615c5c20d50a0d0ddfcda",
+  "browser": {
+    "lib/commonjs/index": "src/index",
+    "crypto": "react-native-crypto",
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "stream": "stream-browserify"
+  }
+}
