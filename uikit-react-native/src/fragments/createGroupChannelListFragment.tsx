@@ -111,7 +111,7 @@ const createGroupChannelListFragment = (initModule?: Partial<GroupChannelListMod
                 >
                   <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center',height: 56, width: 56, borderRadius: 26,backgroundColor: channel.myPushTriggerOption === 'off' ? "#E0B10C":"#727476"
                   }}>
-                  <Icon icon= {  channel.myPushTriggerOption === 'off' ? 'bell-enable' : 'bell-disable' } color='white'></Icon>
+                  <Icon icon= { channel.myPushTriggerOption === 'off' ? 'bell-enable' : 'bell-disable' } color='white'></Icon>
                   </View>
                 </TouchableOpacity>
                 <TouchableOpacity

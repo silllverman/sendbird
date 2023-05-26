@@ -60,5 +60,10 @@ declare const IconAssets: {
     'thumbnail-none': any;
     unarchive: any;
     user: any;
+    bin: any;
+    pin: any;
+    'bell-disable': any;
+    'bell-enable': any;
+    
 };
 export default IconAssets;

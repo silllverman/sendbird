@@ -6,27 +6,27 @@ const DarkUIKitTheme = createTheme({
     const groupChannelMessage = {
       incoming: {
         enabled: {
-          textMsg: palette.onBackgroundDark01,
+          textMsg: 'rgba(210, 210, 215, 1)',
           textEdited: palette.onBackgroundDark02,
           textTime: palette.onBackgroundDark03,
           textSenderName: palette.onBackgroundDark02,
-          background: palette.background400,
+          background: 'rgba(28, 28, 30, 1)',
         },
         pressed: {
-          textMsg: palette.onBackgroundDark01,
+          textMsg: 'rgba(210, 210, 215, 1)',
           textEdited: palette.onBackgroundDark02,
           textTime: palette.onBackgroundDark03,
           textSenderName: palette.onBackgroundDark02,
-          background: palette.primary500,
+          background: 'rgba(28, 28, 30, 1)',
         },
       },
       outgoing: {
         enabled: {
-          textMsg: palette.onBackgroundLight01,
+          textMsg: 'rgba(255, 255, 255, 1)',
           textEdited: palette.onBackgroundLight02,
           textTime: palette.onBackgroundDark03,
           textSenderName: palette.transparent,
-          background: palette.primary200,
+          background: 'rgba(92, 78, 255, 1)',
         },
         pressed: {
           textMsg: palette.onBackgroundLight01,
@@ -39,9 +39,9 @@ const DarkUIKitTheme = createTheme({
     };
 
     return {
-      primary: palette.primary200,
-      secondary: palette.secondary200,
-      error: palette.error200,
+      primary: '#5C4EFF',
+      secondary: '#27C18A',
+      error: '#EB5838',
       background: palette.background600,
       text: palette.onBackgroundDark01,
       onBackground01: palette.onBackgroundDark01,

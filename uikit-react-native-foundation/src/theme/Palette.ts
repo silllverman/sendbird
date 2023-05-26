@@ -1,21 +1,21 @@
 import type { UIKitPalette } from '../types';
 
 const Palette: UIKitPalette = {
-  primary100: '#DBD1FF',
-  primary200: '#C2A9FA',
-  primary300: '#742DDD',
+  primary100: '#D6D2FC',
+  primary200: '#5C4EFF',
+  primary300: '#5C4EFF',
   primary400: '#6211C8',
   primary500: '#491389',
 
   secondary100: '#A8E2AB',
-  secondary200: '#69C085',
-  secondary300: '#259C72',
+  secondary200: '#27C18A',
+  secondary300: '#27C18A',
   secondary400: '#027D69',
   secondary500: '#066858',
 
   error100: '#FDAAAA',
-  error200: '#F66161',
-  error300: '#DE360B',
+  error200: '#EB5838',
+  error300: '#EB5838',
   error400: '#BF0711',
   error500: '#9D091E',
 
@@ -40,7 +40,7 @@ const Palette: UIKitPalette = {
   onBackgroundLight03: 'rgba(0,0,0,0.38)',
   onBackgroundLight04: 'rgba(0,0,0,0.12)',
 
-  onBackgroundDark01: 'rgba(255,255,255,0.88)',
+  onBackgroundDark01: 'rgba(255, 255, 255, 1)',
   onBackgroundDark02: 'rgba(255,255,255,0.50)',
   onBackgroundDark03: 'rgba(255,255,255,0.38)',
   onBackgroundDark04: 'rgba(255,255,255,0.12)',
