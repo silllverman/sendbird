@@ -135,8 +135,8 @@ const DarkUIKitTheme = createTheme({
         badge: {
           default: {
             none: {
-              text: palette.background600,
-              background: palette.primary200,
+              text: '#FFFFFF',
+              background: '#EB5838',
             },
           },
         },
