@@ -12,8 +12,8 @@ export const createBaseStringSet = _ref => {
     dateLocale,
     overrides
   } = _ref;
-  const USER_NO_NAME = (overrides === null || overrides === void 0 ? void 0 : (_overrides$LABELS = overrides.LABELS) === null || _overrides$LABELS === void 0 ? void 0 : _overrides$LABELS.USER_NO_NAME) ?? '(No name)';
-  const CHANNEL_NO_MEMBERS = (overrides === null || overrides === void 0 ? void 0 : (_overrides$LABELS2 = overrides.LABELS) === null || _overrides$LABELS2 === void 0 ? void 0 : _overrides$LABELS2.CHANNEL_NO_MEMBERS) ?? '(No members)';
+  const USER_NO_NAME = (overrides === null || overrides === void 0 ? void 0 : (_overrides$LABELS = overrides.LABELS) === null || _overrides$LABELS === void 0 ? void 0 : _overrides$LABELS.USER_NO_NAME) ?? 'Satoshi';
+  const CHANNEL_NO_MEMBERS = (overrides === null || overrides === void 0 ? void 0 : (_overrides$LABELS2 = overrides.LABELS) === null || _overrides$LABELS2 === void 0 ? void 0 : _overrides$LABELS2.CHANNEL_NO_MEMBERS) ?? 'Satoshi';
   return {
     OPEN_CHANNEL: {
       HEADER_TITLE: channel => getOpenChannelTitle(channel),

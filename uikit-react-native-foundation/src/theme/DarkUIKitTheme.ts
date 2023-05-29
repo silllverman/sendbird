@@ -144,7 +144,7 @@ const DarkUIKitTheme = createTheme({
           default: {
             none: {
               content: palette.onBackgroundDark03,
-              highlight: palette.primary200,
+              highlight: 'rgba(0,0,0,0)',
             },
           },
         },

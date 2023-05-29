@@ -89,7 +89,7 @@ export const getMessageTimeFormat = (date, locale) => {
  * Message preview title text
  * */
 export const getMessagePreviewTitle = function (message) {
-  let EMPTY_USERNAME = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '(No name)';
+  let EMPTY_USERNAME = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'Satoshi';
   if (message.isFileMessage() || message.isUserMessage()) {
     return message.sender.nickname || EMPTY_USERNAME;
   }
