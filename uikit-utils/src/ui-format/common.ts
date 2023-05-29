@@ -79,7 +79,7 @@ export const getMessageTimeFormat = (date: Date, locale?: Locale): string => {
 /**
  * Message preview title text
  * */
-export const getMessagePreviewTitle = (message: SendbirdBaseMessage, EMPTY_USERNAME = '(No name)') => {
+export const getMessagePreviewTitle = (message: SendbirdBaseMessage, EMPTY_USERNAME = 'Satoshi') => {
   if (message.isFileMessage() || message.isUserMessage()) {
     return message.sender.nickname || EMPTY_USERNAME;
   }

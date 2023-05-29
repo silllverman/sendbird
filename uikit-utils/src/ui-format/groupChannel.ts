@@ -6,8 +6,8 @@ import { getMessagePreviewBody, getMessagePreviewTime } from './common';
 export const getGroupChannelTitle = (
   currentUserId: string,
   channel: SendbirdGroupChannel,
-  EMPTY_USERNAME = '(No name)',
-  NO_MEMBERS = '(No members)',
+  EMPTY_USERNAME = 'Satoshi',
+  NO_MEMBERS = 'Satoshi',
   DEFAULT_CHANNEL_NAME = 'Group Channel',
 ) => {
   if (channel.name !== DEFAULT_CHANNEL_NAME && channel.name !== '') return channel.name;

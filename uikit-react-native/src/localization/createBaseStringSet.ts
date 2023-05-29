@@ -29,8 +29,8 @@ type StringSetCreateOptions = {
  * @param {StringSetCreateOptions.overrides} [overrides] Localized strings
  * */
 export const createBaseStringSet = ({ dateLocale, overrides }: StringSetCreateOptions): StringSet => {
-  const USER_NO_NAME = overrides?.LABELS?.USER_NO_NAME ?? '(No name)';
-  const CHANNEL_NO_MEMBERS = overrides?.LABELS?.CHANNEL_NO_MEMBERS ?? '(No members)';
+  const USER_NO_NAME = overrides?.LABELS?.USER_NO_NAME ?? 'Satoshi';
+  const CHANNEL_NO_MEMBERS = overrides?.LABELS?.CHANNEL_NO_MEMBERS ?? 'Satoshi';
   return {
     OPEN_CHANNEL: {
       HEADER_TITLE: (channel) => getOpenChannelTitle(channel),

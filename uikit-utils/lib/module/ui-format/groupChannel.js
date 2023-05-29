@@ -1,7 +1,7 @@
 import { getMessagePreviewBody, getMessagePreviewTime } from './common';
 export const getGroupChannelTitle = function (currentUserId, channel) {
-  let EMPTY_USERNAME = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '(No name)';
-  let NO_MEMBERS = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '(No members)';
+  let EMPTY_USERNAME = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'Satoshi';
+  let NO_MEMBERS = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'Satoshi';
   let DEFAULT_CHANNEL_NAME = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 'Group Channel';
   if (channel.name !== DEFAULT_CHANNEL_NAME && channel.name !== '') return channel.name;
   if (channel.memberCount === 1) return NO_MEMBERS;
