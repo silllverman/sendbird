@@ -1,22 +1,21 @@
-import React from 'react';
-import { SwipeListView } from 'react-native-swipe-list-view';
-import { useGroupChannelList } from '@sendbird/uikit-chat-hooks';
-import { PASS, useAppState, useFreshCallback } from '@sendbird/uikit-utils';
+import React from "react";
+import { SwipeListView } from "react-native-swipe-list-view";
+import { useGroupChannelList } from "@sendbird/uikit-chat-hooks";
+import { PASS, useAppState, useFreshCallback } from "@sendbird/uikit-utils";
 
-import StatusComposition from '../components/StatusComposition';
-import GroupChannelPreviewContainer from '../containers/GroupChannelPreviewContainer';
-import createGroupChannelListModule from '../domain/groupChannelList/module/createGroupChannelListModule';
+import StatusComposition from "../components/StatusComposition";
+import GroupChannelPreviewContainer from "../containers/GroupChannelPreviewContainer";
+import createGroupChannelListModule from "../domain/groupChannelList/module/createGroupChannelListModule";
 import type {
   GroupChannelListFragment,
   GroupChannelListModule,
   GroupChannelListProps,
-} from '../domain/groupChannelList/types';
-import { useSendbirdChat } from '../hooks/useContext';
-import { useColorScheme } from 'react-native';
-import { useUIKitTheme } from '@sendbird/uikit-react-native-foundation';
-import {View,TouchableOpacity,Text} from "react-native"
-import { Icon } from '@sendbird/uikit-react-native-foundation';
-
+} from "../domain/groupChannelList/types";
+import { useSendbirdChat } from "../hooks/useContext";
+import { useColorScheme } from "react-native";
+import { useUIKitTheme } from "@sendbird/uikit-react-native-foundation";
+import { View, TouchableOpacity, Text } from "react-native";
+import { Icon } from "@sendbird/uikit-react-native-foundation";
 
 const createGroupChannelListFragment = (initModule?: Partial<GroupChannelListModule>): GroupChannelListFragment => {
   const GroupChannelListModule = createGroupChannelListModule(initModule);
@@ -41,8 +40,8 @@ const createGroupChannelListFragment = (initModule?: Partial<GroupChannelListMod
     });
 
     if (features.deliveryReceiptEnabled) {
-      useAppState('change', (status) => {
-        if (status === 'active') groupChannels.forEach(markAsDeliveredWithChannel);
+      useAppState("change", (status) => {
+        if (status === "active") groupChannels.forEach(markAsDeliveredWithChannel);
       });
     }
 
@@ -59,19 +58,18 @@ const createGroupChannelListFragment = (initModule?: Partial<GroupChannelListMod
     //   },
     // );
 
-    const _renderGroupChannelPreview: GroupChannelListProps['List']['renderGroupChannelPreview'] = useFreshCallback(
+    const _renderGroupChannelPreview: GroupChannelListProps["List"]["renderGroupChannelPreview"] = useFreshCallback(
       ({ item: channel }, onLongPressChannel) => {
         if (renderGroupChannelPreview) return renderGroupChannelPreview({ item: channel }, onLongPressChannel);
         return (
           <GroupChannelPreviewContainer
             channel={channel}
             onPress={() => onPressChannel(channel)}
-            onLongPress={() =>{}}
+            onLongPress={() => {}}
           />
         );
-      },
-);
-
+      }
+    );
 
     const isChannelTypeAvailable = features.broadcastChannelEnabled || features.superGroupChannelEnabled;
     const { colors } = useUIKitTheme();
@@ -94,10 +92,20 @@ const createGroupChannelListFragment = (initModule?: Partial<GroupChannelListMod
           <SwipeListView
             data={groupChannels}
             renderItem={_renderGroupChannelPreview}
-            renderHiddenItem={ (data, rowMap) => {
+            contentContainerStyle={{ paddingBottom: 100 }}
+            renderHiddenItem={(data, rowMap) => {
               const channel = data.item;
-              return <View style={{flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', height:'100%', padding: 16}}>
-                {/* <TouchableOpacity
+              return (
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "flex-end",
+                    alignItems: "center",
+                    height: "100%",
+                    padding: 16,
+                  }}
+                >
+                  {/* <TouchableOpacity
                   style={{ width: 56, justifyContent: 'center', alignItems: 'center', marginRight: 8}}
                   onPress={()=>onPinnedChanel(channel)}
                 >
@@ -105,30 +113,53 @@ const createGroupChannelListFragment = (initModule?: Partial<GroupChannelListMod
                     <Icon icon='pin' color='white'></Icon>
                   </View>
                 </TouchableOpacity> */}
-                <TouchableOpacity
-                  style={{ width: 56, justifyContent: 'center', alignItems: 'center',marginRight: 8}}
-                  onPress={()=>onEnabledNotificationChanel(channel)}
-                >
-                  <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center',height: 56, width: 56, borderRadius: 26,backgroundColor: channel.myPushTriggerOption === 'off' ? "#E0B10C":"#727476"
-                  }}>
-                  <Icon icon= { channel.myPushTriggerOption === 'off' ? 'bell-enable' : 'bell-disable' } color='white'></Icon>
-                  </View>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={{ width: 56, justifyContent: 'center', alignItems: 'center'}}
-                  onPress={()=>onDeletedChanel(channel)}
-                >
-                  <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center',height: 56, width: 56, borderRadius: 26,backgroundColor: '#27C18A',}}>
-                  <Icon icon='bin' color='white'></Icon>
-                  </View>
-                </TouchableOpacity>
-              </View>
+                  <TouchableOpacity
+                    style={{ width: 56, justifyContent: "center", alignItems: "center", marginRight: 8 }}
+                    onPress={() => onEnabledNotificationChanel(channel)}
+                  >
+                    <View
+                      style={{
+                        flexDirection: "row",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        height: 56,
+                        width: 56,
+                        borderRadius: 26,
+                        backgroundColor: channel.myPushTriggerOption === "off" ? "#E0B10C" : "#727476",
+                      }}
+                    >
+                      <Icon
+                        icon={channel.myPushTriggerOption === "off" ? "bell-enable" : "bell-disable"}
+                        color="white"
+                      ></Icon>
+                    </View>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={{ width: 56, justifyContent: "center", alignItems: "center" }}
+                    onPress={() => onDeletedChanel(channel)}
+                  >
+                    <View
+                      style={{
+                        flexDirection: "row",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        height: 56,
+                        width: 56,
+                        borderRadius: 26,
+                        backgroundColor: "#27C18A",
+                      }}
+                    >
+                      <Icon icon="bin" color="white"></Icon>
+                    </View>
+                  </TouchableOpacity>
+                </View>
+              );
             }}
             rightOpenValue={-150}
-            previewRowKey={'0'}
+            previewRowKey={"0"}
             previewOpenValue={-40}
             previewOpenDelay={3000}
-            style={{backgroundColor: colors.onBackgroundReverse01, paddingTop: 16}}
+            style={{ backgroundColor: colors.onBackgroundReverse01, paddingTop: 16 }}
           />
         </StatusComposition>
         <GroupChannelListModule.TypeSelector
