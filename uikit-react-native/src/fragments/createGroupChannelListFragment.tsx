@@ -25,6 +25,7 @@ const createGroupChannelListFragment = (initModule?: Partial<GroupChannelListMod
     onDeletedChanel,
     onEnabledNotificationChanel,
     onPinnedChanel,
+    onStartChat,
     queryCreator,
     collectionCreator,
     renderGroupChannelPreview,
@@ -89,23 +90,23 @@ const createGroupChannelListFragment = (initModule?: Partial<GroupChannelListMod
               ...flatListProps,
             }}
           /> */}
-          <SwipeListView
-            data={groupChannels}
-            renderItem={_renderGroupChannelPreview}
-            contentContainerStyle={{ paddingBottom: 100 }}
-            renderHiddenItem={(data, rowMap) => {
-              const channel = data.item;
-              return (
-                <View
-                  style={{
-                    flexDirection: "row",
-                    justifyContent: "flex-end",
-                    alignItems: "center",
-                    height: "100%",
-                    padding: 16,
-                  }}
-                >
-                  {/* <TouchableOpacity
+          {groupChannels.length !== 0 && (
+            <SwipeListView
+              data={groupChannels}
+              renderItem={_renderGroupChannelPreview}
+              renderHiddenItem={(data, rowMap) => {
+                const channel = data.item;
+                return (
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      justifyContent: "flex-end",
+                      alignItems: "center",
+                      height: "100%",
+                      padding: 16,
+                    }}
+                  >
+                    {/* <TouchableOpacity
                   style={{ width: 56, justifyContent: 'center', alignItems: 'center', marginRight: 8}}
                   onPress={()=>onPinnedChanel(channel)}
                 >
@@ -113,54 +114,112 @@ const createGroupChannelListFragment = (initModule?: Partial<GroupChannelListMod
                     <Icon icon='pin' color='white'></Icon>
                   </View>
                 </TouchableOpacity> */}
-                  <TouchableOpacity
-                    style={{ width: 56, justifyContent: "center", alignItems: "center", marginRight: 8 }}
-                    onPress={() => onEnabledNotificationChanel(channel)}
-                  >
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        height: 56,
-                        width: 56,
-                        borderRadius: 26,
-                        backgroundColor: channel.myPushTriggerOption === "off" ? "#E0B10C" : "#727476",
-                      }}
+                    <TouchableOpacity
+                      style={{ width: 56, justifyContent: "center", alignItems: "center", marginRight: 8 }}
+                      onPress={() => onEnabledNotificationChanel(channel)}
                     >
-                      <Icon
-                        icon={channel.myPushTriggerOption === "off" ? "bell-enable" : "bell-disable"}
-                        color="white"
-                      ></Icon>
-                    </View>
-                  </TouchableOpacity>
-                  <TouchableOpacity
-                    style={{ width: 56, justifyContent: "center", alignItems: "center" }}
-                    onPress={() => onDeletedChanel(channel)}
-                  >
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        height: 56,
-                        width: 56,
-                        borderRadius: 26,
-                        backgroundColor: "#27C18A",
-                      }}
+                      <View
+                        style={{
+                          flexDirection: "row",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          height: 56,
+                          width: 56,
+                          borderRadius: 26,
+                          backgroundColor: channel.myPushTriggerOption === "off" ? "#E0B10C" : "#727476",
+                        }}
+                      >
+                        <Icon
+                          icon={channel.myPushTriggerOption === "off" ? "bell-enable" : "bell-disable"}
+                          color="white"
+                        ></Icon>
+                      </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={{ width: 56, justifyContent: "center", alignItems: "center" }}
+                      onPress={() => onDeletedChanel(channel)}
                     >
-                      <Icon icon="bin" color="white"></Icon>
-                    </View>
-                  </TouchableOpacity>
-                </View>
-              );
-            }}
-            rightOpenValue={-150}
-            previewRowKey={"0"}
-            previewOpenValue={-40}
-            previewOpenDelay={3000}
-            style={{ backgroundColor: colors.onBackgroundReverse01, paddingTop: 16 }}
-          />
+                      <View
+                        style={{
+                          flexDirection: "row",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          height: 56,
+                          width: 56,
+                          borderRadius: 26,
+                          backgroundColor: "#27C18A",
+                        }}
+                      >
+                        <Icon icon="bin" color="white"></Icon>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+                );
+              }}
+              rightOpenValue={-150}
+              previewRowKey={"0"}
+              previewOpenValue={-40}
+              previewOpenDelay={3000}
+              style={{ backgroundColor: colors.onBackgroundReverse01, paddingTop: 16 }}
+            />
+          )}
+
+          {groupChannels.length == 0 && (
+            <View
+              style={{
+                flex: 1,
+                flexDirection: "column",
+                width: "100%",
+                height: "100%",
+                justifyContent: "center",
+                alignItems: "center",
+                backgroundColor: "#010101",
+                paddingBottom: 150,
+              }}
+            >
+              <View
+                style={{
+                  padding: 24,
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderWidth: 1,
+                  borderColor: "#918F9D",
+                  borderRadius: 48,
+                  marginBottom: 16,
+                }}
+              >
+                <Icon icon="notification" color="white"></Icon>
+              </View>
+
+              <Text
+                style={{
+                  color: "#918F9D",
+                  marginBottom: 16,
+                }}
+              >
+                No Message
+              </Text>
+              <TouchableOpacity
+                style={{
+                  borderRadius: 20,
+                  backgroundColor: colors.primary,
+                }}
+                onPress={onStartChat}
+              >
+                <Text
+                  style={{
+                    color: colors.text,
+
+                    paddingHorizontal: 18,
+                    paddingVertical: 8,
+                  }}
+                >
+                  Start Messaging
+                </Text>
+              </TouchableOpacity>
+            </View>
+          )}
         </StatusComposition>
         <GroupChannelListModule.TypeSelector
           skipTypeSelection={isChannelTypeAvailable ? skipTypeSelection : true}

@@ -1,11 +1,11 @@
-import type React from 'react';
-import type { FlatListProps } from 'react-native';
+import type React from "react";
+import type { FlatListProps } from "react-native";
 
-import type { UseGroupChannelListOptions } from '@sendbird/uikit-chat-hooks';
-import type { ActionMenuItem } from '@sendbird/uikit-react-native-foundation';
-import type { SendbirdGroupChannel } from '@sendbird/uikit-utils';
+import type { UseGroupChannelListOptions } from "@sendbird/uikit-chat-hooks";
+import type { ActionMenuItem } from "@sendbird/uikit-react-native-foundation";
+import type { SendbirdGroupChannel } from "@sendbird/uikit-utils";
 
-import type { CommonComponent } from '../../types';
+import type { CommonComponent } from "../../types";
 
 export interface GroupChannelListProps {
   /** Props for `GroupChannelListFragment` **/
@@ -19,23 +19,24 @@ export interface GroupChannelListProps {
     onPinnedChanel: (channel: SendbirdGroupChannel) => void;
     /** Remote current channel */
     onEnabledNotificationChanel: (channel: SendbirdGroupChannel) => void;
+    onStartChat: () => void;
     /** Navigate to GroupChannelCreateFragment **/
     onPressCreateChannel: (channelType: GroupChannelType) => void;
     /** Method to render GroupChannel preview **/
     renderGroupChannelPreview?: (
       channel: SendbirdGroupChannel,
-      onLongPressChannel: () => void,
+      onLongPressChannel: () => void
     ) => React.ReactElement | null;
     /** Skip type selection, When this is set to true 'channelType' only receive 'GROUP' type **/
     skipTypeSelection?: boolean;
     /** Custom Query creator for channels query **/
-    queryCreator?: UseGroupChannelListOptions['queryCreator'];
+    queryCreator?: UseGroupChannelListOptions["queryCreator"];
     /** Custom Collection creator for group channel collection **/
-    collectionCreator?: UseGroupChannelListOptions['collectionCreator'];
+    collectionCreator?: UseGroupChannelListOptions["collectionCreator"];
     /** FlatList props for GroupChannelList.List **/
-    flatListProps?: GroupChannelListProps['List']['flatListProps'];
+    flatListProps?: GroupChannelListProps["List"]["flatListProps"];
     /** Action menu item creator for onLongPress **/
-    menuItemCreator?: GroupChannelListProps['List']['menuItemCreator'];
+    menuItemCreator?: GroupChannelListProps["List"]["menuItemCreator"];
   };
   /** Props for `GroupChannelListModule.Header` **/
   Header: {};
@@ -47,12 +48,12 @@ export interface GroupChannelListProps {
     renderGroupChannelPreview: (
       // FIXME/BREAKING: Changed to props object
       channel: SendbirdGroupChannel,
-      onLongPressChannel: () => void,
+      onLongPressChannel: () => void
     ) => React.ReactElement | null;
     /** Method to load more data, called with onEndReached of FlatList **/
     onLoadNext: () => Promise<void>;
     /** Prop from Fragment **/
-    flatListProps?: Omit<FlatListProps<SendbirdGroupChannel>, 'data' | 'renderItem'>;
+    flatListProps?: Omit<FlatListProps<SendbirdGroupChannel>, "data" | "renderItem">;
     /** Prop from Fragment **/
     menuItemCreator?: (defaultMenuItem: ActionMenuItem) => ActionMenuItem;
   };
@@ -83,12 +84,12 @@ export interface GroupChannelListContextsType {
 }
 export interface GroupChannelListModule {
   Provider: CommonComponent;
-  Header: CommonComponent<GroupChannelListProps['Header']>;
-  List: CommonComponent<GroupChannelListProps['List']>;
-  TypeSelector: CommonComponent<GroupChannelListProps['TypeSelector']>;
+  Header: CommonComponent<GroupChannelListProps["Header"]>;
+  List: CommonComponent<GroupChannelListProps["List"]>;
+  TypeSelector: CommonComponent<GroupChannelListProps["TypeSelector"]>;
   StatusEmpty: CommonComponent;
   StatusLoading: CommonComponent;
 }
 
-export type GroupChannelListFragment = CommonComponent<GroupChannelListProps['Fragment']>;
-export type GroupChannelType = 'GROUP' | 'SUPER_GROUP' | 'BROADCAST';
+export type GroupChannelListFragment = CommonComponent<GroupChannelListProps["Fragment"]>;
+export type GroupChannelType = "GROUP" | "SUPER_GROUP" | "BROADCAST";
