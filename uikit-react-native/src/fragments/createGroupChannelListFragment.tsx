@@ -24,7 +24,6 @@ const createGroupChannelListFragment = (initModule?: Partial<GroupChannelListMod
     onPressCreateChannel,
     onDeletedChanel,
     onEnabledNotificationChanel,
-    onPinnedChanel,
     onStartChat,
     queryCreator,
     collectionCreator,

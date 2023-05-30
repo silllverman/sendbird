@@ -19,6 +19,7 @@ export interface GroupChannelListProps {
     onPinnedChanel: (channel: SendbirdGroupChannel) => void;
     /** Remote current channel */
     onEnabledNotificationChanel: (channel: SendbirdGroupChannel) => void;
+
     onStartChat: () => void;
     /** Navigate to GroupChannelCreateFragment **/
     onPressCreateChannel: (channelType: GroupChannelType) => void;

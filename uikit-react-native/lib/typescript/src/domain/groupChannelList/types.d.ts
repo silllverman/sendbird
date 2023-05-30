@@ -17,6 +17,7 @@ export interface GroupChannelListProps {
         onPinnedChanel: (channel: SendbirdGroupChannel) => void;
         /** Remote current channel */
         onEnabledNotificationChanel: (channel: SendbirdGroupChannel) => void;
+        onStartChat:()=> void;
         /** Method to render GroupChannel preview **/
         renderGroupChannelPreview?: (channel: SendbirdGroupChannel, onLongPressChannel: () => void) => React.ReactElement | null;
         /** Skip type selection, When this is set to true 'channelType' only receive 'GROUP' type **/
