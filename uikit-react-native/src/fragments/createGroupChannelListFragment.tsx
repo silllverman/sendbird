@@ -17,7 +17,9 @@ import { useUIKitTheme } from "@sendbird/uikit-react-native-foundation";
 import { View, TouchableOpacity, Text } from "react-native";
 import { Icon } from "@sendbird/uikit-react-native-foundation";
 
-const createGroupChannelListFragment = (initModule?: Partial<GroupChannelListModule>): GroupChannelListFragment => {
+const createGroupChannelListFragment = (
+  initModule?: Partial<GroupChannelListModule>
+): GroupChannelListFragment => {
   const GroupChannelListModule = createGroupChannelListModule(initModule);
   return ({
     onPressChannel,
@@ -32,16 +34,22 @@ const createGroupChannelListFragment = (initModule?: Partial<GroupChannelListMod
     flatListProps = {},
     menuItemCreator = PASS,
   }) => {
-    const { sdk, currentUser, features, markAsDeliveredWithChannel } = useSendbirdChat();
-    const { groupChannels, next, loading } = useGroupChannelList(sdk, currentUser?.userId, {
-      queryCreator,
-      collectionCreator,
-      enableCollectionWithoutLocalCache: !queryCreator,
-    });
+    const { sdk, currentUser, features, markAsDeliveredWithChannel } =
+      useSendbirdChat();
+    const { groupChannels, next, loading } = useGroupChannelList(
+      sdk,
+      currentUser?.userId,
+      {
+        queryCreator,
+        collectionCreator,
+        enableCollectionWithoutLocalCache: !queryCreator,
+      }
+    );
 
     if (features.deliveryReceiptEnabled) {
       useAppState("change", (status) => {
-        if (status === "active") groupChannels.forEach(markAsDeliveredWithChannel);
+        if (status === "active")
+          groupChannels.forEach(markAsDeliveredWithChannel);
       });
     }
 
@@ -58,9 +66,13 @@ const createGroupChannelListFragment = (initModule?: Partial<GroupChannelListMod
     //   },
     // );
 
-    const _renderGroupChannelPreview: GroupChannelListProps["List"]["renderGroupChannelPreview"] = useFreshCallback(
-      ({ item: channel }, onLongPressChannel) => {
-        if (renderGroupChannelPreview) return renderGroupChannelPreview({ item: channel }, onLongPressChannel);
+    const _renderGroupChannelPreview: GroupChannelListProps["List"]["renderGroupChannelPreview"] =
+      useFreshCallback(({ item: channel }, onLongPressChannel) => {
+        if (renderGroupChannelPreview)
+          return renderGroupChannelPreview(
+            { item: channel },
+            onLongPressChannel
+          );
         return (
           <GroupChannelPreviewContainer
             channel={channel}
@@ -68,21 +80,24 @@ const createGroupChannelListFragment = (initModule?: Partial<GroupChannelListMod
             onLongPress={() => {}}
           />
         );
-      }
-    );
+      });
 
-    const isChannelTypeAvailable = features.broadcastChannelEnabled || features.superGroupChannelEnabled;
+    const isChannelTypeAvailable =
+      features.broadcastChannelEnabled || features.superGroupChannelEnabled;
     const { colors } = useUIKitTheme();
     return (
       <GroupChannelListModule.Provider>
         <GroupChannelListModule.Header />
-        <StatusComposition loading={loading} LoadingComponent={<GroupChannelListModule.StatusLoading />}>
+        <StatusComposition
+          loading={loading}
+          LoadingComponent={<GroupChannelListModule.StatusLoading />}
+        >
           {/* <GroupChannelListModule.List
             menuItemCreator={menuItemCreator}
             renderGroupChannelPreview={_renderGroupChannelPreview}
             groupChannels={groupChannels}
             onLoadNext={next}
-            
+
             flatListProps={{
               ListEmptyComponent: <GroupChannelListModule.StatusEmpty />,
               contentContainerStyle: { flexGrow: 1, backgroundColor: colors.onBackgroundReverse01, paddingTop:16},
@@ -92,6 +107,9 @@ const createGroupChannelListFragment = (initModule?: Partial<GroupChannelListMod
           {groupChannels.length !== 0 && (
             <SwipeListView
               data={groupChannels}
+              ListFooterComponent={
+                <View style={{ height: 100, width: "100%" }}></View>
+              }
               renderItem={_renderGroupChannelPreview}
               renderHiddenItem={(data, rowMap) => {
                 const channel = data.item;
@@ -114,7 +132,12 @@ const createGroupChannelListFragment = (initModule?: Partial<GroupChannelListMod
                   </View>
                 </TouchableOpacity> */}
                     <TouchableOpacity
-                      style={{ width: 56, justifyContent: "center", alignItems: "center", marginRight: 8 }}
+                      style={{
+                        width: 56,
+                        justifyContent: "center",
+                        alignItems: "center",
+                        marginRight: 8,
+                      }}
                       onPress={() => onEnabledNotificationChanel(channel)}
                     >
                       <View
@@ -125,17 +148,28 @@ const createGroupChannelListFragment = (initModule?: Partial<GroupChannelListMod
                           height: 56,
                           width: 56,
                           borderRadius: 26,
-                          backgroundColor: channel.myPushTriggerOption === "off" ? "#E0B10C" : "#727476",
+                          backgroundColor:
+                            channel.myPushTriggerOption === "off"
+                              ? "#E0B10C"
+                              : "#727476",
                         }}
                       >
                         <Icon
-                          icon={channel.myPushTriggerOption === "off" ? "bell-enable" : "bell-disable"}
+                          icon={
+                            channel.myPushTriggerOption === "off"
+                              ? "bell-enable"
+                              : "bell-disable"
+                          }
                           color="white"
                         ></Icon>
                       </View>
                     </TouchableOpacity>
                     <TouchableOpacity
-                      style={{ width: 56, justifyContent: "center", alignItems: "center" }}
+                      style={{
+                        width: 56,
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
                       onPress={() => onDeletedChanel(channel)}
                     >
                       <View
@@ -159,7 +193,10 @@ const createGroupChannelListFragment = (initModule?: Partial<GroupChannelListMod
               previewRowKey={"0"}
               previewOpenValue={-40}
               previewOpenDelay={3000}
-              style={{ backgroundColor: colors.onBackgroundReverse01, paddingTop: 16 }}
+              style={{
+                backgroundColor: colors.onBackgroundReverse01,
+                paddingTop: 16,
+              }}
             />
           )}
 
